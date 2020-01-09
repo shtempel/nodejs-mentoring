@@ -1,4 +1,4 @@
-export const PORT = 4001;
+export const PORT = process.env.PORT || 4001;
 
 export const ERRORS = {
     userNotFound: 'User not Found!',

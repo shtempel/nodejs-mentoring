@@ -2,9 +2,10 @@
   "name": "nodejs_mentoring",
   "version": "1.0.0",
   "description": "",
-  "main": "src/app.ts",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon ./src/server.ts"
+    "start": "node dist/server-bundle.js",
+    "build_server": "set NODE_ENV=production && webpack --config webpack.server.config.js"
   },
   "repository": {
     "type": "git",
@@ -18,21 +19,27 @@
   },
   "homepage": "https://github.com/shtempel/nodejs-mentoring#readme",
   "dependencies": {
+    "@hapi/joi": "^16.1.8",
+    "@types/hapi__joi": "^16.0.4",
     "@types/http-errors": "^1.6.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-joi-validation": "^4.0.3",
     "http-errors": "^1.7.3",
+    "nodemon-webpack-plugin": "^4.2.2",
+    "engines": {
+      "node": "10.16"
+    },
+    "ts-loader": "^6.2.1",
     "ts-node": "^8.5.2",
     "typedoc": "^0.15.2",
     "typescript": "^3.7.2",
-    "uuid": "^3.3.3"
+    "uuid": "^3.3.3",
+    "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
-    "@hapi/joi": "^16.1.8",
     "@types/cors": "^2.8.6",
     "@types/express": "^4.17.2",
-    "@types/hapi__joi": "^16.0.4",
     "@types/node": "^12.12.9",
     "@types/uuid": "^3.4.6",
     "nodemon": "^1.19.4"

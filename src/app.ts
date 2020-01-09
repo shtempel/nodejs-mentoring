@@ -1,8 +1,9 @@
-import express, { Application, Router } from 'express';
+import express, { Application } from 'express';
+
+import { PORT } from './constants';
 import rootRouter from './routes';
 
 const app: Application = express();
 app.use(express.json());
 app.use('/', rootRouter);
-
-export default app;
+app.listen(PORT, () => console.log(`Listening on port ${ PORT }`));
