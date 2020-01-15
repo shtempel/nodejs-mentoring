@@ -1,9 +1,8 @@
 import { Request, Response } from 'express';
-
 import createError, { HttpError } from 'http-errors';
+
 import { ERRORS } from '../constants';
 import { userService } from '../services';
-import { userToResponse } from '../services/service.helpers';
 
 const getUsers = async (request: Request, response: Response) => {
     try {
@@ -17,11 +16,11 @@ const getUsers = async (request: Request, response: Response) => {
 
 const getUserById = async (request: Request, response: Response) => {
     try {
-        const user = await userService.getUserById(request.params.userId);
+        const user: any = await userService.getUserById(request.params.userId);
 
         if ( !user ) throw ({ status: 404, message: ERRORS.userNotFound });
 
-        return response.send({ user: userToResponse(user), status: 'success' })
+        return response.send({ user: user, status: 'success' })
     } catch (error) {
         const err: HttpError = createError(400, { message: error.message });
 
@@ -47,7 +46,7 @@ const updateUser = async (request: Request, response: Response) => {
 
         response.send({ status: 'success' });
     } catch (error) {
-        const err: HttpError = createError(404, { message: error.message });
+        const err: HttpError = createError(404, { message: ERRORS.userNotFound });
 
         response.status(err.status).send({ error: err });
     }

@@ -5,3 +5,8 @@ export const ERRORS = {
     methodNotAllowed: 'Method not allowed here!',
     userExist: 'login name already exist!'
 };
+
+export const LOG_MESSAGES = {
+    connectionSuccess: 'Connection has been established successfully!',
+    connectionFailed: 'Unable to connect to the database:'
+};

@@ -1,7 +1,7 @@
 export interface User extends UserToResponse {
     password: string;
-    isDeleted: boolean;
 }
+
 export interface UserToAdd {
     login: string;
     age: number;
@@ -9,7 +9,7 @@ export interface UserToAdd {
 }
 
 export interface UserToResponse {
-    id: string;
+    userId: string;
     login: string;
     age: number;
 }
@@ -17,4 +17,11 @@ export interface UserToResponse {
 export interface UserToUpdate {
     age: number;
     login: string;
+}
+
+export interface DbUser {
+    user_id: string;
+    loginname: string;
+    password: string;
+    age: number;
 }

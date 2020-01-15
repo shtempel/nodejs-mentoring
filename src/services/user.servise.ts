@@ -1,11 +1,11 @@
 import uuid from 'uuid';
 
-import { userDAL } from '../dto';
-import { User, UserToAdd, UserToResponse, UserToUpdate } from '../interfaces/typings';
+import { userDAL } from '../data-access';
+import { UserToAdd, UserToResponse, UserToUpdate } from '../interfaces/typings';
 
 const getAllUsers = (query: { login?: string, limit?: string, offset?: string }): Promise<UserToResponse[]> => userDAL.getAll(query);
 
-const getUserById = (userId: string): Promise<User | undefined> => userDAL.getUser(userId);
+const getUserById = (userId: string): Promise<UserToResponse> => userDAL.getUser(userId);
 
 const addUser = (newUser: UserToAdd) => userDAL.insertUser(newUser, uuid.v1().toString());
 

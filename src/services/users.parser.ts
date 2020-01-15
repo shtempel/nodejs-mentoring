@@ -1,10 +1,16 @@
-import { User, UserToResponse } from '../interfaces/typings';
+import { DbUser, UserToResponse, User, UserToAdd } from '../interfaces/typings';
 
-export const usersParser = (users: User[]): UserToResponse[] => {
-    return users
-        .filter(user => !user.isDeleted).map(user => ({
-            id: user.id,
-            login: user.login,
-            age: user.age
-        }))
-};
+export const userToResponse = (user: DbUser): UserToResponse => ({
+    userId: user.user_id,
+    login: user.loginname,
+    age: user.age
+});
+
+export const usersToResponse = (users: DbUser[]): UserToResponse[] => users.map(user => userToResponse(user));
+
+export const userToDb = (user: UserToAdd, userId: string): DbUser => ({
+    user_id: userId,
+    loginname: user.login,
+    age: user.age,
+    password: user.password
+});
