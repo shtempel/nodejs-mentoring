@@ -1,6 +1,6 @@
 import express, { Application } from 'express';
 
-import { PORT } from './constants';
+import { LOG_MESSAGES, PORT } from './constants';
 import { dbConnect } from './data-access/db';
 import rootRouter from './routes';
 
@@ -10,10 +10,10 @@ app.use(express.json());
 app.use('/', rootRouter);
 
 app.listen(PORT, async () => {
-    console.log(`Listening on port ${ PORT }`);
+    console.log(`${ LOG_MESSAGES.portListening } ${ PORT }`);
     try {
         await dbConnect();
     } catch (e) {
-       throw e;
+        throw e;
     }
 });
