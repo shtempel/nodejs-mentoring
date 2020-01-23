@@ -1,18 +1,17 @@
 import uuid from 'uuid';
 
-import { userDAL } from '../data-access';
-import { userToDb } from '../data-access/users.parser';
+import { userDAL, userToDb } from '../data-access';
 import { UserToAdd, UserToResponse, UserToUpdate } from '../interfaces/typings';
 
 const getAllUsers = (query: { login?: string, limit?: string, offset?: string }): Promise<UserToResponse[]> => userDAL.getAll(query);
 
-const getUserById = (userId: string): Promise<UserToResponse> => userDAL.getUser(userId);
+const getUserById = (user_id: string): Promise<UserToResponse> => userDAL.getUser(user_id);
 
 const addUser = (newUser: UserToAdd): Promise<void> => userDAL.insertUser(userToDb(newUser, uuid.v1().toString()));
 
-const updateUser = (userId: string, userToUpdate: UserToUpdate): Promise<void> => userDAL.updateUser(userId, userToUpdate);
+const updateUser = (user_id: string, userToUpdate: UserToUpdate): Promise<void> => userDAL.updateUser(user_id, userToUpdate);
 
-const deleteUser = (userId: string) => userDAL.deleteUser(userId);
+const deleteUser = (user_id: string) => userDAL.deleteUser(user_id);
 
 export const userService = {
     getAllUsers,

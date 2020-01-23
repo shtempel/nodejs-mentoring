@@ -1,5 +1,6 @@
 # dependencies
 /node_modules
+/dist
 
 # IDEs and editors
 /.idea
@@ -9,4 +10,3 @@
 *.launch
 .settings/
 *.sublime-workspace
-.dist

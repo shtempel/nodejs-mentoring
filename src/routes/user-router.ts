@@ -12,7 +12,7 @@ userRouter.route(routes.root)
     .post(validator.body(addUserBodySchema), usersController.addUser)
     .all(usersController.notAllowed);
 
-userRouter.route(routes.userId)
+userRouter.route(routes.user_id)
     .get(usersController.getUserById)
     .put(validator.params(updateUserQuerySchema), validator.body(updateUserBodySchema), usersController.updateUser)
     .delete(usersController.deleteUser)

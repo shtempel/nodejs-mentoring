@@ -1,4 +1,4 @@
-import { Column, Table, Model, PrimaryKey } from 'sequelize-typescript';
+import { Column, Table, Model, PrimaryKey, AllowNull, Unique, DataType } from 'sequelize-typescript';
 
 @Table({
     schema: 'new',
@@ -6,15 +6,21 @@ import { Column, Table, Model, PrimaryKey } from 'sequelize-typescript';
 })
 export class User extends Model<User> {
     @PrimaryKey
+    @Unique(true)
+    @AllowNull(false)
     @Column
     user_id: string;
 
+    @AllowNull(false)
+    @Unique(true)
     @Column
-    loginname: string;
+    login: string;
 
+    @AllowNull(false)
     @Column
     password: string;
 
+    @AllowNull(false)
     @Column
     age: number;
 }

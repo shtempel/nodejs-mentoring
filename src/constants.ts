@@ -8,5 +8,6 @@ export const ERRORS = {
 
 export const LOG_MESSAGES = {
     connectionSuccess: 'Connection has been established successfully!',
-    connectionFailed: 'Unable to connect to the database:'
+    connectionFailed: 'Unable to connect to the database:',
+    portListening: 'Listening on port'
 };
