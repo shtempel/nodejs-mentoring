@@ -18,5 +18,5 @@ export const updateUserBodySchema = Joi.object({
 });
 
 export const updateUserQuerySchema = Joi.object({
-    userId: Joi.string().required()
+    user_id: Joi.string().required()
 });

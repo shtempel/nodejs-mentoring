@@ -1,7 +1,7 @@
 export const ROUTES = {
     userRoutes: {
         root: '/',
-        userId: '/:userId',
+        user_id: '/:user_id',
         users: '/users'
     }
 };

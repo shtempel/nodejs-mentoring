@@ -28,6 +28,6 @@ export const dbConnect = () => {
     return sequelize
         .sync({ force: true })
         .then(() => console.log(LOG_MESSAGES.connectionSuccess))
-        .then(() => users.forEach(user => userToDb(user, user.userId).save()))
+        .then(() => users.forEach(user => userToDb(user, user.user_id).save()))
         .catch(error => console.error(LOG_MESSAGES.connectionFailed, error));
 };

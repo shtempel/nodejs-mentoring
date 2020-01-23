@@ -9,7 +9,7 @@ export interface UserToAdd {
 }
 
 export interface UserToResponse {
-    userId: string;
+    user_id: string;
     login: string;
     age: number;
 }
@@ -17,11 +17,4 @@ export interface UserToResponse {
 export interface UserToUpdate {
     age: number;
     login: string;
-}
-
-export interface DbUser {
-    user_id: string;
-    loginname: string;
-    password: string;
-    age: number;
 }
