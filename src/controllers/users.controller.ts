@@ -18,7 +18,7 @@ const updateUser = async (request: Request, response: Response) =>
     requestHelper(() => userService.updateUser(request.params.user_id, request.body), response);
 
 const deleteUser = async (request: Request, response: Response) =>
-    requestHelper(() => userService.deleteUser(request.params.user_id   ), response);
+    requestHelper(() => userService.deleteUser(request.params.user_id), response);
 
 const notAllowed = (request: Request, response: Response) => {
     let err: HttpError = createError(405, ERRORS.methodNotAllowed);
