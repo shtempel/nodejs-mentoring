@@ -1,14 +1,31 @@
-import { Column, Table, Model, PrimaryKey, AllowNull, Unique, DataType } from 'sequelize-typescript';
+import {
+    Column,
+    Table,
+    Model,
+    PrimaryKey,
+    AllowNull,
+    Unique,
+    BelongsToMany,
+    DataType
+} from 'sequelize-typescript';
+
+import config from './config';
+import { Group } from './group.model';
+import { UserGroup } from './user-group.model';
 
 @Table({
-    schema: 'new',
-    tableName: 'users'
+    schema: config.schema,
+    tableName: config.tables.users,
+    paranoid: true
 })
 export class User extends Model<User> {
+    @BelongsToMany(() => Group, () => UserGroup)
+    groups: Group[];
+
     @PrimaryKey
-    @Unique(true)
     @AllowNull(false)
-    @Column
+    @Unique(true)
+    @Column(DataType.STRING)
     user_id: string;
 
     @AllowNull(false)

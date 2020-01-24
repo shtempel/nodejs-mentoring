@@ -8,15 +8,37 @@ export const validator = createValidator();
 
 export const addUserBodySchema = Joi.object({
     login: Joi.string().required(),
-    age: Joi.number().required().greater(MIN_AGE).less(MAX_AGE),
-    password: Joi.string().required().alphanum()
+    age: Joi.number().greater(MIN_AGE).less(MAX_AGE).required(),
+    password: Joi.string().alphanum().required()
 });
 
 export const updateUserBodySchema = Joi.object({
     login: Joi.string().required(),
-    age: Joi.number().required().greater(MIN_AGE).less(MAX_AGE)
+    age: Joi.number().greater(MIN_AGE).less(MAX_AGE).required()
 });
 
 export const updateUserQuerySchema = Joi.object({
     user_id: Joi.string().required()
+});
+
+export const addGroupBodySchema = Joi.object({
+    name: Joi.string().required(),
+    permissions: Joi.array().items(Joi.string()).required()
+});
+
+export const updateGroupQuerySchema = Joi.object({
+    group_id: Joi.string().required()
+});
+
+export const updateGroupBodySchema = Joi.object({
+    name: Joi.string().required(),
+    permissions: Joi.array().items(Joi.string()).required()
+});
+
+export const addUsersToGroupQuerySchema = Joi.object({
+    group_id: Joi.string().required()
+});
+
+export const addUsersToGroupBodySchema = Joi.object({
+    userIds: Joi.array().items(Joi.string()).required()
 });
