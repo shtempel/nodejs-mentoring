@@ -11,20 +11,21 @@ const models = [
     UserGroup
 ];
 
-const sequelize = new Sequelize(
+export const sequelize = new Sequelize(
     dbConfig.database,
     dbConfig.username,
     dbConfig.password,
     {
         define: {
-            timestamps: true
+            timestamps: true,
+            paranoid: true
         },
         port: dbConfig.port,
         dialect: dbConfig.dialect,
         host: dbConfig.host,
         dialectOptions: { ssl: true },
         pool: dbConfig.pool,
-        models: [ ...models ],
+        models: [ ...models ]
     }
 );
 
@@ -35,6 +36,6 @@ export const dbConnect = () =>
         .then(async () => {
             await User.bulkCreate(users);
             await Group.bulkCreate(groups);
-            // await UserGroup.bulkCreate(userGroups);
+            await UserGroup.bulkCreate(userGroups);
         })
         .catch(error => console.error(LOG_MESSAGES.connectionFailed, error));
