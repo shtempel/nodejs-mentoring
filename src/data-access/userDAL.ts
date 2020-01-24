@@ -29,7 +29,7 @@ const getUser = async (user_id: string): Promise<UserToResponse> => {
 };
 
 const insertUser = async (userModel: UserModel): Promise<void> => {
-    const user = await UserModel.findOne({ where: { loginname: userModel.login } });
+    const user = await UserModel.findOne({ where: { login: userModel.login } });
 
     if ( user ) throw createError(400, { message: ERRORS.userExist });
 
