@@ -15,6 +15,8 @@ export class Group extends Model<Group> {
     @BelongsToMany(() => User, () => UserGroup)
     users: User[];
 
+    // addUsers: BelongsToManyAddAssociationsMixin<User, string>; Just an example of adding methods to model
+
     @PrimaryKey
     @Unique(true)
     @AllowNull(false)
