@@ -1,4 +1,5 @@
-export * from './userDAL';
+export * from './dal/user.DAL';
+export * from './dal/group.DAL';
+
 export * from './db';
-export * from './users.parser';
 export * from './typings';
