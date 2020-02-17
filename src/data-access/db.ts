@@ -11,7 +11,7 @@ const models = [
     UserGroup
 ];
 
-const sequelize = new Sequelize(
+export const sequelize = new Sequelize(
     dbConfig.database,
     dbConfig.username,
     dbConfig.password,
