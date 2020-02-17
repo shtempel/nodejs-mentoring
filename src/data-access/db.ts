@@ -29,13 +29,16 @@ export const sequelize = new Sequelize(
     }
 );
 
-export const dbConnect = () =>
-    sequelize
-        .sync({ force: true })
-        .then(() => console.log(LOG_MESSAGES.connectionSuccess))
-        .then(async () => {
-            await User.bulkCreate(users);
-            await Group.bulkCreate(groups);
-            await UserGroup.bulkCreate(userGroups);
-        })
-        .catch(error => console.error(LOG_MESSAGES.connectionFailed, error));
+export const dbConnect = async () => {
+    await sequelize.sync({ force: true });
+    console.log(LOG_MESSAGES.connectionSuccess);
+    try {
+        console.log('Database restoring in process...');
+        await User.bulkCreate(users);
+        await Group.bulkCreate(groups);
+        await UserGroup.bulkCreate(userGroups);
+        console.log('Database restoring complete!');
+    } catch (error) {
+        console.error({ name: error.name, message: error.message, stack: error.stack });
+    }
+};
