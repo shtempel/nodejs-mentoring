@@ -9,6 +9,4 @@ const notAllowed = (request: Request, response: Response) => {
     response.status(err.status).send({ status: err.status, message: err.message });
 };
 
-export const invalidController = {
-    notAllowed
-};
+export const invalidController = { notAllowed };

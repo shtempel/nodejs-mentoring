@@ -1,5 +1,4 @@
 import { Group, GroupToDb, User, UserToAdd, UserToResponse } from '../interfaces/typings';
-import { UserGroup as UserGroupModel } from '../models/user-group.model';
 import { User as UserModel } from '../models/user.model';
 import { Group as GroupModel } from './../models/group.model';
 

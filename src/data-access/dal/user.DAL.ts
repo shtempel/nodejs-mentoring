@@ -1,7 +1,7 @@
 import { Op, WhereOptions } from 'sequelize';
 import createError from 'http-errors';
-import { ERRORS } from '../../constants';
 
+import { ERRORS } from '../../constants';
 import { UserToResponse, UserToUpdate } from '../../interfaces/typings';
 import { User } from '../../models';
 import { usersToResponse, userToResponse } from '../../middlewares';

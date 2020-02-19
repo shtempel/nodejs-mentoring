@@ -1,13 +1,4 @@
-import {
-    Column,
-    Table,
-    Model,
-    PrimaryKey,
-    AllowNull,
-    Unique,
-    BelongsToMany,
-    DataType
-} from 'sequelize-typescript';
+import { Column, Table, Model, PrimaryKey, AllowNull, Unique, BelongsToMany, DataType } from 'sequelize-typescript';
 
 import config from './config';
 import { Group } from './group.model';

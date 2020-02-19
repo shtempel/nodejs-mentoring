@@ -13,7 +13,7 @@ app.listen(PORT, async () => {
     console.log(`${ LOG_MESSAGES.portListening } ${ PORT }`);
     try {
         await dbConnect();
-    } catch (e) {
-        throw e;
+    } catch (error) {
+        throw error;
     }
 });

@@ -1,7 +1,7 @@
 import uuid from 'uuid';
 
 import { User } from '../interfaces/typings';
-import { PermissionsType } from '../models/group.model';
+import { PermissionsType } from '../models';
 
 export const users: User[] = [
     {

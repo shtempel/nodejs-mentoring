@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-import { groupService } from '../services/group.servise';
+import { groupService } from '../services';
 import { requestHelper } from './helper';
 
 const getGroups = (request: Request, response: Response) =>
