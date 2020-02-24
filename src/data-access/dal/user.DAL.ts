@@ -17,7 +17,7 @@ const getAll = async (params: QueryParams): Promise<UserToResponse[]> => {
     const limit: number = limitParam && parseInt(limitParam, 10) + offset || DEFAULT_LIMIT;
     const where: WhereOptions = login ? { login: { [ Op.iLike ]: `%${ login }%` } } : {};
     const users: User[] = await User.findAll({ offset: offset, limit: limit, where });
-    console.log(params);
+
     return usersToResponse(users);
 };
 

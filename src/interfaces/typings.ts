@@ -1,4 +1,4 @@
-import { PermissionsType } from '../models/group.model';
+import { PermissionsType } from '../models';
 
 // Users
 export interface User extends UserToResponse {
