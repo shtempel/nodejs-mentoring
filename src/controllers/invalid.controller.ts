@@ -2,13 +2,13 @@ import { Request, Response } from 'express';
 import createError, { HttpError } from 'http-errors';
 
 import { ERRORS } from '../constants';
+import { logger } from '../middlewares';
 
 const notAllowed = (request: Request, response: Response) => {
-    let err: HttpError = createError(404, ERRORS.routNotExist);
+    let error: HttpError = createError(404, ERRORS.routNotExist);
 
-    response.status(err.status).send({ status: err.status, message: err.message });
+    logger.error(`status: ${ 404 }, message: ${ error.message }`);
+    response.status(error.status).send({ status: error.status, message: error.message });
 };
 
-export const invalidController = {
-    notAllowed
-};
+export const invalidController = { notAllowed };

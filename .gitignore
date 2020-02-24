@@ -4,5 +4,8 @@
 # build output
 /dist
 
+# otput
+/logs
+
 # IDEs and editors
 /.idea

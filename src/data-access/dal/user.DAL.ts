@@ -1,7 +1,7 @@
 import { Op, WhereOptions } from 'sequelize';
 import createError from 'http-errors';
-import { ERRORS } from '../../constants';
 
+import { ERRORS } from '../../constants';
 import { UserToResponse, UserToUpdate } from '../../interfaces/typings';
 import { User } from '../../models';
 import { usersToResponse, userToResponse } from '../../middlewares';
@@ -17,7 +17,7 @@ const getAll = async (params: QueryParams): Promise<UserToResponse[]> => {
     const limit: number = limitParam && parseInt(limitParam, 10) + offset || DEFAULT_LIMIT;
     const where: WhereOptions = login ? { login: { [ Op.iLike ]: `%${ login }%` } } : {};
     const users: User[] = await User.findAll({ offset: offset, limit: limit, where });
-    console.log(params);
+
     return usersToResponse(users);
 };
 
