@@ -1,4 +1,5 @@
 import { Sequelize } from 'sequelize-typescript';
+import { logger } from '../middlewares/logger';
 import { User } from '../models/user.model';
 
 import { users, users2 } from './backup';
@@ -12,8 +13,7 @@ const sequelize = new Sequelize(
     dbConfig.password,
     {
         define: {
-            timestamps: true,
-            paranoid: true
+            timestamps: true
         },
         port: dbConfig.port,
         dialect: dbConfig.dialect,
@@ -26,13 +26,13 @@ const sequelize = new Sequelize(
 
 export const dbConnect = async () => {
     await sequelize.sync({ force: true });
-    console.log(LOG_MESSAGES.connectionSuccess);
+    logger.info(LOG_MESSAGES.connectionSuccess);
     try {
         await User.bulkCreate(users);
         await User.bulkCreate(users2);
+        logger.info('Database restoring complete!');
     }
     catch (e) {
-        console.error(LOG_MESSAGES.connectionFailed, e);
         throw e;
     }
     // return sequelize

@@ -2,7 +2,8 @@ import { Column, Table, Model, PrimaryKey, AllowNull, Unique, DataType } from 's
 
 @Table({
     schema: 'new',
-    tableName: 'users'
+    tableName: 'users',
+    paranoid: true
 })
 export class User extends Model<User> {
     @PrimaryKey
