@@ -1,7 +1,7 @@
 import { createLogger, transports, format } from 'winston'
 import { TransformableInfo } from 'logform';
 
-const LOG_DIRNAME = 'logs';
+import { LOG_DIRNAME } from './constants';
 
 const LOG_FILE_MAX_SIZE: number = 5000;
 

@@ -1,16 +1,16 @@
-import { User, UserToAdd, UserToResponse } from '../interfaces/typings';
+import { Group, GroupToDb, User, UserToAdd, UserToResponse } from '../interfaces/typings';
 import { User as UserModel } from '../models/user.model';
 import { Group as GroupModel } from './../models/group.model';
 
-export const groupToResponse = (group: any): any => ({
+export const groupToResponse = (group: Group): Group => ({
     group_id: group.group_id,
     name: group.name,
     permissions: group.permissions
 });
 
-export const groupsToResponse = (groups: any[]): any[] => groups.map(group => groupToResponse(group));
+export const groupsToResponse = (groups: Group[]): Group[] => groups.map(group => groupToResponse(group));
 
-export const groupToDb = (group: any, group_id: string) =>
+export const groupToDb = (group: GroupToDb, group_id: string) =>
     new GroupModel({
         group_id: group_id,
         name: group.name,
