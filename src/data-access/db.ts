@@ -1,7 +1,7 @@
 import { Sequelize } from 'sequelize-typescript';
 import { User } from '../models/user.model';
 
-import { users } from './backup';
+import { users, users2 } from './backup';
 import { LOG_MESSAGES } from '../constants';
 import { models } from '../models';
 import dbConfig from './../../config/config';
@@ -29,6 +29,7 @@ export const dbConnect = async () => {
     console.log(LOG_MESSAGES.connectionSuccess);
     try {
         await User.bulkCreate(users);
+        await User.bulkCreate(users2);
     }
     catch (e) {
         console.error(LOG_MESSAGES.connectionFailed, e);

@@ -8,7 +8,7 @@ import { usersToResponse, userToResponse } from './users.parser';
 import { User as UserModel } from './../models/user.model';
 
 const DEFAULT_OFFSET: number = 0;
-const DEFAULT_LIMIT: number = 10;
+const DEFAULT_LIMIT: number = 20;
 
 const getAll = async (params: QueryParams): Promise<UserToResponse[]> => {
     const { login, offsetParam, limitParam } = params;

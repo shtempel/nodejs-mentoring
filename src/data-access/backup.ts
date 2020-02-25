@@ -2,6 +2,14 @@ import uuid from 'uuid';
 
 import { User } from '../interfaces/typings';
 
+export const users2: User[] = [
+    {
+        user_id: 'hueta',
+        login: "hueta",
+        password: "hueta",
+        age: 3
+    }
+];
 export const users: User[] = [
     {
         user_id: 'blablabla',
