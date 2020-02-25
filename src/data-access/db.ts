@@ -1,8 +1,9 @@
 import { Sequelize } from 'sequelize-typescript';
 import { logger } from '../middlewares/logger';
+import { Group } from '../models/group.model';
 import { User } from '../models/user.model';
 
-import { users, users2 } from './backup';
+import { users, groups } from './backup';
 import { LOG_MESSAGES } from '../constants';
 import { models } from '../models';
 import dbConfig from './../../config/config';
@@ -29,7 +30,7 @@ export const dbConnect = async () => {
     logger.info(LOG_MESSAGES.connectionSuccess);
     try {
         await User.bulkCreate(users);
-        await User.bulkCreate(users2);
+        await Group.bulkCreate(groups);
         logger.info('Database restoring complete!');
     }
     catch (e) {

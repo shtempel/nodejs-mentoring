@@ -4,7 +4,6 @@ import { LOG_MESSAGES, PORT } from './constants';
 import { dbConnect } from './data-access';
 import { logger } from './middlewares/logger';
 import rootRouter from './routes';
-import { ROUTES } from './routes/constants';
 
 const app: Application = express();
 

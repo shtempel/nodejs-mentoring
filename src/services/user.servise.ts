@@ -1,6 +1,6 @@
 import uuid from 'uuid';
-
 import { userDAL, userToDb } from '../data-access';
+
 import { UserToAdd, UserToResponse, UserToUpdate } from '../interfaces/typings';
 
 const getAllUsers = (query: { login?: string, limit?: string, offset?: string }): Promise<UserToResponse[]> => userDAL.getAll(query);

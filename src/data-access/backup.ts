@@ -2,12 +2,16 @@ import uuid from 'uuid';
 
 import { User } from '../interfaces/typings';
 
-export const users2: User[] = [
+export const groups: { group_id: string, name: string, permissions: any[] }[] = [
     {
-        user_id: 'hueta',
-        login: "hueta",
-        password: "hueta",
-        age: 3
+        group_id: 'light_side',
+        name: 'light_side',
+        permissions: [ 'WRITE', 'DELETE' ]
+    },
+    {
+        group_id: 'dark_side',
+        name: 'dark_side',
+        permissions: [ 'WRITE', 'READ' ]
     }
 ];
 export const users: User[] = [
