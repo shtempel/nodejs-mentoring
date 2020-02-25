@@ -4,7 +4,7 @@ import { User } from '../interfaces/typings';
 
 export const users: User[] = [
     {
-        user_id: uuid.v1().toString(),
+        user_id: 'blablabla',
         login: "AnakinSkywalker",
         password: "anakinpass",
         age: 32
