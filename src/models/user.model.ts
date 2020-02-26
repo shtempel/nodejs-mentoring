@@ -1,4 +1,4 @@
-import { Column, Table, Model, PrimaryKey, AllowNull, Unique, BelongsToMany, DataType } from 'sequelize-typescript';
+import { Column, Table, Model, PrimaryKey, AllowNull, Unique, DataType, BelongsToMany } from 'sequelize-typescript';
 
 import config from './config';
 import { Group } from './group.model';
@@ -14,9 +14,10 @@ export class User extends Model<User> {
     groups: Group[];
 
     @PrimaryKey
-    @AllowNull(false)
     @Unique(true)
+    @AllowNull(false)
     @Column(DataType.STRING)
+    @Column
     user_id: string;
 
     @AllowNull(false)

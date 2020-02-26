@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import createError, { HttpError } from 'http-errors';
 
 import { ERRORS } from '../constants';
-import { logger } from '../middlewares';
+import { logger } from '../middlewares/logger';
 
 const getLogMessage = (request: Request): string => {
     const params = `params: ${ JSON.stringify(request.params) }`;
