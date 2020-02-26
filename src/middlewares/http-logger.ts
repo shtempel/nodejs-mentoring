@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 
 import { logger } from './logger';
 
-export default (request: Request, response: Response, next: NextFunction) => {
+export const httpLogger = (request: Request, response: Response, next: NextFunction) => {
     const params = `params: ${ JSON.stringify(request.params) }`;
     const body = `body: ${ JSON.stringify(request.body) }`;
     const query = `query: ${ JSON.stringify(request.query) }`;
