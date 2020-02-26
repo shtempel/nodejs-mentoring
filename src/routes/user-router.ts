@@ -1,7 +1,6 @@
 import express from 'express';
 
-import { usersController } from '../controllers';
-import { notAllowed } from '../controllers/helper';
+import { usersController, notAllowed } from '../controllers';
 import { addUserBodySchema, updateUserBodySchema, updateUserQuerySchema, validator } from '../middlewares';
 import { ROUTES } from './constants';
 

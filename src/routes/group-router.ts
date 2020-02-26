@@ -1,7 +1,6 @@
 import express from 'express';
 
-import { groupController, usersGroupController } from '../controllers';
-import { notAllowed } from '../controllers/helper';
+import { groupController, usersGroupController, notAllowed } from '../controllers';
 import {
     addGroupBodySchema,
     addUsersToGroupBodySchema,
