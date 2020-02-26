@@ -1,7 +1,6 @@
 import express from 'express';
 
 import { groupController } from '../controllers';
-import { notAllowed } from '../controllers/helper';
 
 import { ROUTES } from './constants';
 
@@ -10,13 +9,11 @@ const routes = ROUTES.groupRoutes;
 
 groupRouter.route(routes.root)
     .get(groupController.getGroups)
-    .post(groupController.addGroup)
-    .all(notAllowed);
+    .post(groupController.addGroup);
 
 groupRouter.route(routes.group_id)
     .get(groupController.getGroupById)
     .put(groupController.updateGroup)
-    .delete(groupController.deleteGroup)
-    .all(notAllowed);
+    .delete(groupController.deleteGroup);
 
 export default groupRouter;
