@@ -39,7 +39,8 @@ export const dbConnect = async () => {
         await Group.bulkCreate(groups);
         await UserGroup.bulkCreate(userGroups);
         logger.info('Database restoring complete!');
-    } catch (e) {
-        throw e;
+    } catch (error) {
+        logger.error({ name: error.name, message: error.message, stack: error.stack });
+        throw error;
     }
 };
