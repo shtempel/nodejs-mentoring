@@ -7,6 +7,7 @@ export const ROUTES = {
     groupRoutes: {
         root: '/',
         group_id: '/:group_id',
+        users: '/:group_id/users',
         groups: '/groups'
     },
 };

@@ -1,6 +1,9 @@
 # dependencies
 /node_modules
 
+# logs
+/logs
+
 # IDEs and editors
 /.idea
 .project
