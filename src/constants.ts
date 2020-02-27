@@ -11,6 +11,8 @@ export const ERRORS = {
 export const LOG_MESSAGES = {
     connectionSuccess: 'Connection has been established successfully!',
     connectionFailed: 'Unable to connect to the database:',
-    portListening: 'Listening on port...'
+    portListening: 'Listening on port...',
+    dataBaseRestoringInProcess: 'Database restoring in process...',
+    dataBaseRestoringComplete: 'Database restoring complete!'
 };
 
