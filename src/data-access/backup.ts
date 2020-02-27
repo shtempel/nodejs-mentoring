@@ -1,7 +1,13 @@
 import uuid from 'uuid';
 
-import { User } from '../interfaces/typings';
-import { PermissionsType } from '../models';
+import { Group, User, UsersGroup } from '../interfaces/typings';
+import { User as UserModel, Group as GroupModel, UserGroup as UserGroupModel } from '../models';
+
+export const dataBaseRestoring = async () => {
+    await UserModel.bulkCreate(users);
+    await GroupModel.bulkCreate(groups);
+    await UserGroupModel.bulkCreate(userGroups);
+};
 
 export const users: User[] = [
     {
@@ -108,7 +114,7 @@ export const users: User[] = [
     }
 ];
 
-export const groups: { group_id: string, name: string, permissions: PermissionsType[] }[] = [
+export const groups: Group[] = [
     {
         group_id: 'light_side',
         name: 'light_side',
@@ -121,8 +127,7 @@ export const groups: { group_id: string, name: string, permissions: PermissionsT
     }
 ];
 
-
-export const userGroups: { group_id: string, user_id: string }[] = [
+export const userGroups: UsersGroup[] = [
     {
         group_id: 'light_side',
         user_id: 'anakin'

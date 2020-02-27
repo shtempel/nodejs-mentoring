@@ -21,7 +21,6 @@ const updateGroup = (request: Request, response: Response) =>
 const deleteGroup = (request: Request, response: Response) => requestHelper(() =>
     groupService.deleteGroup(request.params.group_id), response, request);
 
-
 export const groupController = {
     getGroups,
     getGroupById,
