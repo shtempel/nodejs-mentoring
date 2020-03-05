@@ -1,10 +1,10 @@
 import { Sequelize } from 'sequelize-typescript';
 
+import { dbConfig } from '../../config/config';
 import { logger } from '../middlewares';
 import { dataBaseRestoring } from './backup';
 import { LOG_MESSAGES } from '../constants';
 import { User, Group, UserGroup } from '../models';
-import dbConfig from './../../config/config';
 
 const models = [ User, Group, UserGroup ];
 

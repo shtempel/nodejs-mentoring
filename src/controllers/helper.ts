@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import createError, { HttpError } from 'http-errors';
 
 import { ERRORS } from '../constants';
@@ -17,6 +17,7 @@ const getLogMessage = (request: Request): string => {
 export const requestHelper = async (fn: any, response: Response, request: Request) => {
     try {
         const data = await fn();
+
         return data
             ? response.send({ data, status: 'success' })
             : response.send({ status: 'success' });

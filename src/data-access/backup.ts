@@ -1,10 +1,13 @@
 import uuid from 'uuid';
+import { genSaltSync, hashSync } from 'bcrypt';
 
 import { Group, User, UsersGroup } from '../interfaces/typings';
 import { User as UserModel, Group as GroupModel, UserGroup as UserGroupModel } from '../models';
 
+const SALT = genSaltSync(10);
+
 export const dataBaseRestoring = async () => {
-    await UserModel.bulkCreate(users);
+    await UserModel.bulkCreate(users.map(user => ({ ...user, password: hashSync(user.password, SALT) })));
     await GroupModel.bulkCreate(groups);
     await UserGroupModel.bulkCreate(userGroups);
 };

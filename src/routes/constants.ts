@@ -15,6 +15,10 @@ export const ROUTES = {
         group_id: '/:group_id',
         users_group: '/users_group',
     },
+    authenticate: {
+        root: '/',
+        auth: '/auth'
+    },
     invalid: {
         root: '*'
     }

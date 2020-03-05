@@ -2,7 +2,12 @@ import express from 'express';
 
 import { usersController } from '../controllers';
 import { notAllowed } from '../controllers';
-import { addUserBodySchema, updateUserBodySchema, updateUserQuerySchema, validator } from '../middlewares';
+import {
+    addUserBodySchema,
+    updateUserBodySchema,
+    updateUserQuerySchema,
+    validator
+} from '../middlewares';
 import { ROUTES } from './constants';
 
 const userRouter = express.Router();
