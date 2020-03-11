@@ -7,5 +7,8 @@
 # otput
 /logs
 
+# other
+.env
+
 # IDEs and editors
 /.idea
