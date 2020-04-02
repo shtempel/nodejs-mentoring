@@ -1,10 +1,10 @@
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import createError, { HttpError } from 'http-errors';
 
 import { ERRORS } from '../constants';
 import { logger } from '../middlewares';
 
-const getLogMessage = (request: Request): string => {
+export const getLogMessage = (request: Request): string => {
     const params = `params: ${ JSON.stringify(request.params) }`;
     const body = `body: ${ JSON.stringify(request.body) }`;
     const query = `query: ${ JSON.stringify(request.query) }`;

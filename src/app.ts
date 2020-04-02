@@ -7,7 +7,7 @@ import { headerSchema, httpLogger, logger, processUnhandledError, validator } fr
 import { checkToken } from './middlewares/guard';
 import rootRouter from './routes';
 
-const app: Application = express();
+export const app: Application = express();
 
 app.use(express.json());
 app.use(cors());

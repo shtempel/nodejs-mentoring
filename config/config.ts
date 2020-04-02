@@ -1,8 +1,7 @@
-import { CorsOptions } from 'cors';
-import dotenv from 'dotenv';
+import 'dotenv/config';
 import { Dialect } from 'sequelize';
 
-dotenv.config();
+// dotenv.config();
 
 const { DB_DIALECT, DB_PORT, DB_NAME, DB_USERNAME, DB_PASSWORD, DB_HOST } = process.env;
 
