@@ -1,14 +1,20 @@
+import 'dotenv/config';
 import { Dialect } from 'sequelize';
 
-const dialect: Dialect = 'postgres';
+// dotenv.config();
 
-export default {
+const { DB_DIALECT, DB_PORT, DB_NAME, DB_USERNAME, DB_PASSWORD, DB_HOST } = process.env;
+
+const dialect = DB_DIALECT as Dialect;
+const port = parseInt(DB_PORT);
+
+export const dbConfig = {
     dialect: dialect,
-    host: "ec2-54-246-100-246.eu-west-1.compute.amazonaws.com",
-    port: 5432,
-    database: "d3ovs0khj82a3h",
-    username: "xddqvrfzwdwecr",
-    password: "3f41b5047cddbb5261d07e2a6e82eb3f6451de8b3885e01cf6136af5954d7a37",
+    host: DB_HOST,
+    port: port,
+    database: DB_NAME,
+    username: DB_USERNAME,
+    password: DB_PASSWORD,
     pool: {
         min: 0,
         max: 5,

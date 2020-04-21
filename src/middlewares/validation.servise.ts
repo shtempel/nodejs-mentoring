@@ -6,6 +6,10 @@ const MAX_AGE = 130;
 
 export const validator = createValidator();
 
+export const headerSchema = Joi.object({
+    authorization: Joi.string().required()
+});
+
 export const addUserBodySchema = Joi.object({
     login: Joi.string().required(),
     age: Joi.number().greater(MIN_AGE).less(MAX_AGE).required(),
@@ -41,4 +45,9 @@ export const addUsersToGroupQuerySchema = Joi.object({
 
 export const addUsersToGroupBodySchema = Joi.object({
     userIds: Joi.array().items(Joi.string()).required()
+});
+
+export const authBodySchema = Joi.object({
+    login: Joi.string().required(),
+    password: Joi.string().alphanum().required()
 });

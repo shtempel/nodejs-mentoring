@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 
 import { groupService } from '../services';
 import { requestHelper } from './helper';

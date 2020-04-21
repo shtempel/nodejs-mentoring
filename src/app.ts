@@ -1,15 +1,20 @@
 import express, { Application } from 'express';
+import * as cors from 'cors';
 
 import { LOG_MESSAGES, PORT } from './constants';
 import { dbConnect } from './data-access';
-import { httpLogger, logger, processUnhandledError } from './middlewares';
+import { headerSchema, httpLogger, logger, processUnhandledError, validator } from './middlewares';
+import { checkToken } from './middlewares/guard';
 import rootRouter from './routes';
 
-const app: Application = express();
+export const app: Application = express();
 
 app.use(express.json());
-app.use(httpLogger);
+app.use(cors());
+app.use(checkToken);
+app.get('*', validator.headers(headerSchema));
 app.use(rootRouter);
+app.use(httpLogger);
 
 processUnhandledError();
 
